@@ -7,13 +7,14 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("chicken");
 
-  const APP_ID = "39d67c21";
-  const APP_KEY = "125253941fe83e450d0235c73bb01292";
+  const appID = process.env.REACT_APP_ID;
+  const appKey = process.env.REACT_APP_KEY;
 
-  const reqApi = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+  const reqApi = `https://api.edamam.com/search?q=${query}&app_id=${appID}&app_key=${appKey}`;
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   const fetchData = async () => {
